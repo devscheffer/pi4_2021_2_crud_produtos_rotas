@@ -1,0 +1,25 @@
+<h3>Formulário de Produtos</h3>
+
+<label for="id">Id:</label>
+<input [(ngModel)]="produto.id" id="id">
+<br />
+
+<label for="nome">Nome:</label>
+<input [(ngModel)]="produto.nome" id="nome">
+<br />
+
+<label for="marca">Marca:</label>
+<input [(ngModel)]="produto.marca" id="marca">
+<br />
+
+<label for="preco">Preco:</label>
+<input type="number" [(ngModel)]="produto.preco" id="preco">
+<br />
+
+<label for="validade">Validade:</label>
+<input type="date" [(ngModel)]="produto.validade" id="validade">
+<br />
+
+<button (click)="cadastrar()" >{{botaoAcao}}</button>
+<button (click)="cancelar()" >Cancelar</button>
+
