@@ -10,6 +10,7 @@
         <th>MARCA</th>
         <th>PREÇO</th>
         <th>VALIDADE</th>
+        <th>AÇÃO</th>
     </tr>
     <tr *ngFor="let prod of produtos | filtroPesquisa:nomePesquisado">
         <td>{{prod.id}}</td>
@@ -17,5 +18,8 @@
         <td>{{prod.marca | uppercase}}</td>
         <td>{{prod.preco | moeda}}</td>
         <td>{{prod.validade | date:'dd/MM/yyyy'}}</td>
+        <td><a routerLink="/edit/{{prod.id}}">Editar</a></td>
+        <td><a [routerLink]="" (click)="deletar(prod.id)">Deletar</a></td>
+        
     </tr> 
 </table>

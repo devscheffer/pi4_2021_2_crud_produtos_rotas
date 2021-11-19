@@ -1,8 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Produto } from './produto';
-
+//Adicionado o pure (false) para renderizar a tabela
+//quando remover um produto
 @Pipe({
-  name: 'filtroPesquisa'
+  name: 'filtroPesquisa',
+  pure: false
 })
 export class FiltroPesquisaPipe implements PipeTransform {
 

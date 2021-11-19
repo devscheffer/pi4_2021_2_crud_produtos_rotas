@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Produto } from '../produto';
 import { ProdutoService } from '../produto.service';
 
@@ -7,7 +7,7 @@ import { ProdutoService } from '../produto.service';
   templateUrl: './tabela-produtos.component.html',
   styleUrls: ['./tabela-produtos.component.css']
 })
-export class TabelaProdutosComponent implements OnInit {
+export class TabelaProdutosComponent implements OnInit{
   @Input('nome') nomeComponente = 'Tabela de Produtos';
   produtos: Produto[] = [];
   nomePesquisado = "";
@@ -17,6 +17,12 @@ export class TabelaProdutosComponent implements OnInit {
  }
 
  ngOnInit(): void {
+ }
+
+
+ //Não estava renderizando -> Ver filtro-pesquisa.pipe
+ deletar(id: number){
+  this.produtoService.deletarProduto(id);
  }
 
 }

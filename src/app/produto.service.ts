@@ -24,4 +24,36 @@ export class ProdutoService {
   getProdutos() {
     return this.listaProdutos;    
   }  
+
+  buscarPorId(id:number):Produto {
+    const produto = this.listaProdutos.find( produto => produto.id === id);
+    return produto ?produto :new Produto();
+    //if(produto) {
+      //return produto
+    //} else {
+      //return new Produto()
+    //}
+  }
+
+  editarProduto(id: number, produto: Produto) {
+    const index = this.getIndice(id);
+    if (index >= 0) {
+      this.listaProdutos[index] = produto;
+    }
+  }
+
+  deletarProduto(id:number) {
+    const index = this.getIndice(id);
+    console.log(index);
+    if (index >= 0) {
+      this.listaProdutos.splice(index, 1);
+      console.log(this.listaProdutos.length)
+    }
+
+  }
+
+  private getIndice(id:number) {
+    return this.listaProdutos.findIndex(prod => prod.id === id);
+  }
+
 }
